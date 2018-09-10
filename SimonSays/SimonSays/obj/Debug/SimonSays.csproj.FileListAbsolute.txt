@@ -1,0 +1,10 @@
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\bin\Debug\SimonSays.exe.config
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\bin\Debug\SimonSays.exe
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\bin\Debug\SimonSays.pdb
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.csprojAssemblyReference.cache
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.Form1.resources
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.Properties.Resources.resources
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.csproj.GenerateResource.cache
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.csproj.CoreCompileInputs.cache
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.exe
+C:\Users\Lord_\Desktop\Repositories\simon-says-game\SimonSays\SimonSays\obj\Debug\SimonSays.pdb
