@@ -16,6 +16,7 @@ namespace SimonSays
         List<string> playerPick = new List<string>();
         List<string> colors = new List<string>();
         Timer timer = new Timer();
+        bool compTurn, playerTurn;
 
         public Form1()
         {
@@ -36,6 +37,9 @@ namespace SimonSays
             colors.Add("yellow");
             colors.Add("blue");
 
+            compTurn = true;
+            playerTurn = false;
+
             compPick.Clear();
             playerPick.Clear();
 
@@ -48,6 +52,8 @@ namespace SimonSays
             int upper = colors.Count() + 1;
             int compChoice = rand.Next(1,upper);
             compPick.Add(colors[compChoice-1].ToString());
+
+            Console.WriteLine("Computer picked: "+compChoice.ToString());
         }
         private void timerTick(object sender, EventArgs e)
         {
