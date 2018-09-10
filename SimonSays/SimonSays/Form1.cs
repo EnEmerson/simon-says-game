@@ -15,8 +15,11 @@ namespace SimonSays
         List<string> compPick = new List<string>();
         List<string> playerPick = new List<string>();
         List<string> colors = new List<string>();
+        List<string> temp = new List<string>();
         Timer timer = new Timer();
         bool compTurn;
+        int winNum, accuracy;
+        string cheatSheet = "";
 
         public Form1()
         {
@@ -35,87 +38,43 @@ namespace SimonSays
             colors.Clear();
             compPick.Clear();
             playerPick.Clear();
-
-            timer.Interval = 1000;
+            temp.Clear();
 
             colors.Add("green");
             colors.Add("red");
             colors.Add("yellow");
             colors.Add("blue");
 
-            compTurn = true;
-
-            computerPick();
-        }
-
-        private void checkAccuracy()
-        {
-            //this is where i will check if the arrays match or not
-            int compCount = 0;
-            int plCount = 0;
-            string c = "";
-            string p = "";
-            foreach(string i in compPick)
-            {
-                string temp;
-                temp = compPick[compCount].ToString();
-                c += temp;
-                compCount++;
-            }
-            foreach (string j in playerPick)
-            {
-                string temp;
-                temp = playerPick[plCount].ToString();
-                p += temp;
-                plCount++;
-            }
-
-            Console.WriteLine("computer's array:" + c);
-            Console.WriteLine("player's array:" + p);
-
-        }
-
-        private void computerPick()
-        {
+            compTurn = false;
+            accuracy = 0;
+            winNum = 20;
+            
             Random rand = new Random();
-            do
+            for (int i = 0; i < winNum; i++)
             {
                 int upper = colors.Count() + 1;
                 int compChoice = rand.Next(1, upper);
                 compPick.Add(colors[compChoice - 1].ToString());
+                cheatSheet += compPick[i];
+            }
+        }
 
-                Console.WriteLine("Computer picked: " + compChoice.ToString());
-
-                switch (compChoice)
+        private void checkAccuracy()
+        {
+            accuracy += 1;
+            for(int i = 0; i < accuracy; i++)
+            {
+                temp.Add(compPick[i]);
+            }
+            for(int j = 0; j < accuracy; j++)
+            {
+                if(playerPick[j].Equals(temp[j]))
                 {
-                    case 1:
-                        greenButton_Click(new object(), new EventArgs());
-                        break;
-                    case 2:
-                        redButton_Click(new object(), new EventArgs());
-                        break;
-                    case 3:
-                        yellowButton_Click(new object(), new EventArgs());
-                        break;
-                    case 4:
-                        blueButton_Click(new object(), new EventArgs());
-                        break;
-                    default:
-                        MessageBox.Show("something went wrong.");
-                        return;
-                }
-
-                if(compPick.Count() > playerPick.Count())
-                {
-                    compTurn = false;
+                    Console.WriteLine("item at " + j + " matches");
+                    Console.WriteLine(cheatSheet);
                 }
             }
-            while (compTurn);
-        }
-        private void timerTick(object sender, EventArgs e)
-        {
-            timer.Stop();
-            resetColors();
+            temp.Clear();
         }
 
         private void greenButton_Click(object sender, EventArgs e)
@@ -186,12 +145,18 @@ namespace SimonSays
             }
             if(!compTurn)
             {
-                timer.Interval = 100;
+                timer.Interval = 300;
             }
             timer.Tick += timerTick;
             timer.Start();
             disableButtons();
         }
+        private void timerTick(object sender, EventArgs e)
+        {
+            timer.Stop();
+            resetButtons();
+        }
+
 
         private void disableButtons()
         {
@@ -201,7 +166,7 @@ namespace SimonSays
             blueButton.Enabled = false;
         }
 
-        private void resetColors()
+        private void resetButtons()
         {
             greenButton.BackColor = Color.Green;
             redButton.BackColor = Color.Red;
