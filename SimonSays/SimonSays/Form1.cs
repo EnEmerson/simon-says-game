@@ -51,6 +51,28 @@ namespace SimonSays
         private void checkAccuracy()
         {
             //this is where i will check if the arrays match or not
+            int compCount = 0;
+            int plCount = 0;
+            string c = "";
+            string p = "";
+            foreach(string i in compPick)
+            {
+                string temp;
+                temp = compPick[compCount].ToString();
+                c += temp;
+                compCount++;
+            }
+            foreach (string j in playerPick)
+            {
+                string temp;
+                temp = playerPick[plCount].ToString();
+                p += temp;
+                plCount++;
+            }
+
+            Console.WriteLine("computer's array:" + c);
+            Console.WriteLine("player's array:" + p);
+
         }
 
         private void computerPick()
